@@ -1,10 +1,58 @@
 @import "~bootstrap/scss/bootstrap";
 
+body {
+    background: rgb(164, 164, 164);
+    background: linear-gradient(180deg, rgba(164, 164, 164, 1) 0%, rgba(247, 247, 247, 1) 35%);
+}
+
 button {
     margin: 1em;
 }
 
 .card {
-    margin: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-right: 0rem;
+    margin-left: 0rem;
     display: flex;
+    border-radius: 1rem;
+    border: 0rem;
+}
+
+.card-body{
+    text-align: center;
+    background-color: #c8c8c8;
+    color: #515151;
+    border-radius: 1rem;
+}
+
+.todo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.col{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header{
+    color: #515151;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    margin-top: -2rem;
+}
+
+h1{
+    font-size: 18rem;
+}
+
+h3{
+    font-size: 5rem;
+    margin-top: -3rem;
 }

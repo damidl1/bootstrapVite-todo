@@ -8,7 +8,10 @@ import { Manager } from '../../model/manager'
 
 import { Todo } from '../../model/todo'
 
+document.querySelector('form').addEventListener('submit', ()=>addTodo());
 
+document.getElementById('orderAZ').addEventListener('click', ()=>orderByTitle());
+document.getElementById('orderDate').addEventListener('click', ()=>orderByDate());
 
 let manager;
 
@@ -17,11 +20,29 @@ DBService.getAllTodos().then(todos => {
     render();
 })
 
+const showButton = document.getElementById("showDialog");
+const newShowDialog = document.getElementById("newShowDialog");
+
+const confirmBtn = newShowDialog.querySelector("#confirmBtn");
+
+const cancelButton = newShowDialog.querySelector('#cancelButton')
+
+showButton.addEventListener("click", () => {
+  newShowDialog.showModal();
+});
+
+cancelButton.addEventListener("click", (event) => {
+    event.preventDefault();
+    newShowDialog.close(); 
+});
 
 function render(){
     
     const todoContainer=document.getElementById('todo-container'); 
     todoContainer.innerHTML= '';
+
+    const row = document.createElement('div');
+    row.classList.add('row');
 
     for (let i = 0; i < manager.todoArray.length; i++) {
 
@@ -29,13 +50,15 @@ function render(){
 
         const div=document.createElement('div');
         div.classList.add('card');
+        const column = document.createElement('div');
+        column.classList.add('col');
         div.style = 'width: 20rem';
 
         if(todo.isCompleted){
             // div.classList.add('todo-completed');
-            div.style.borderColor='lime';
+            div.style.boxShadow='0px 9px 42px -6px #71967b';
         } else {
-            div.style.borderColor='red';
+            div.style.boxShadow= '0px 9px 35px -6px #967171';
         }
 
         const divBody = document.createElement('div');
@@ -120,7 +143,9 @@ function render(){
         // detailBtn.appendChild(detailBtnNode);
         // div.appendChild(detailBtn);
 
-        todoContainer.appendChild(div);
+        column.appendChild(div);
+        row.appendChild(column);
+        todoContainer.appendChild(row);
     }
 }
 
@@ -135,7 +160,7 @@ function orderByDate(){
 }
 
 function addTodo(){
-    const input = document.getElementById('add-todo-input')
+    const input = document.getElementById('title')
     const newTodoTitle = input.value;
     if(newTodoTitle.trim() !== ''){
 

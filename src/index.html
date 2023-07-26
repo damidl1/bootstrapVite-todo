@@ -6,55 +6,41 @@
     <title>Bootstrap w/ Vite</title>
   </head>
   <body>
-    <!-- <nav class="navbar bg-dark border-bottom border-bottom-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark"
-    style="background-color: darkred !important;">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Features</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pricing</a>
-                </li>
-                <li>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Launch demo modal
-                    </button>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Dropdown link
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
+    <header>
+        <h1>ToDo</h1>
+        <h3>Manager</h3>
+    </header>
+    <div class="order">
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              Ordina per:
+            </button>
+            <ul class="dropdown-menu">
+              <li><a id="orderAZ" class="dropdown-item" href="#">A-Z</a></li>
+              <li><a id="orderDate" class="dropdown-item" href="#">Data</a></li>
             </ul>
-        </div>
-
+          </div>        
     </div>
-</nav> -->
-<div class="container-fluid" style="width: 18rem;" id="todo-container">
-    <!-- <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
-    </div> -->
+<div class="container-fluid" id="todo-container">
   </div>
+  <div>
+    <!-- A modal dialog containing a form -->
+    <dialog id="newShowDialog">
+        <form id="create-form" name="create" method="dialog">
+            <div>
+                <label for="title">Inserisci nuovo Todo</label>
+                <input type="text" name="title" id="title" required>
+            </div>
+            <div>
+                <button id="cancelButton">Annulla</button>
+                <button id="confirmBtn" type="submit" formmethod="dialog">Conferma</button>
+            </div>
+        </form>
+    </dialog>
+    <p>
+        <button id="showDialog">+</button>
+    </p>
+</div>
     <script type="module" src="./js/main.js"></script>
   </body>
 </html>
