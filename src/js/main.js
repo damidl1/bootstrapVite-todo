@@ -28,27 +28,37 @@ function render(){
         const todo = manager.todoArray[i];
 
         const div=document.createElement('div');
-        div.classList.add('todo-card');
+        div.classList.add('card');
+        div.style = 'width: 20rem';
 
         if(todo.isCompleted){
             // div.classList.add('todo-completed');
             div.style.borderColor='lime';
+        } else {
+            div.style.borderColor='red';
         }
 
-        const titleStrong=document.createElement('strong');
+        const divBody = document.createElement('div');
+        divBody.classList.add('card-body');
+
+        const titleStrong=document.createElement('h5');
         const titleNode=document.createTextNode(todo.title);
+        titleStrong.classList.add('card-title');
 
         titleStrong.appendChild(titleNode);
-        div.appendChild(titleStrong);
+        divBody.appendChild(titleStrong);
         
         const dateSpan=document.createElement('span');
         const dateNode=document.createTextNode(todo.creationDate.toISOString());
+        dateSpan.classList.add('card-text'); // data
 
         dateSpan.appendChild(dateNode);
-        div.appendChild(dateSpan);
+        divBody.appendChild(dateSpan);
 
         const completeBtn = document.createElement('button');
         const completeNode = document.createTextNode( todo.isCompleted ? 'da completare' : 'completato');
+        completeBtn.classList.add('btn', 'btn-primary');
+        completeBtn.type = 'button';
         completeBtn.addEventListener('click', () => {
 
             const modifiedTodo = {...todo};
@@ -74,11 +84,13 @@ function render(){
         // completeBtn.addEventListener('mouseleave', () => div.style.borderWidth = '1px');
 
         completeBtn.appendChild(completeNode);
-        div.appendChild(completeBtn);
+        divBody.appendChild(completeBtn);
 
 
         const deleteBtn = document.createElement('button');
         const deleteNode = document.createTextNode('cancella');
+        deleteBtn.classList.add('btn', 'btn-primary');
+        deleteBtn.type = 'button';
         deleteBtn.addEventListener('click', () => {
 
             DBService.deleteTodo(todo.id).then(() => {
@@ -94,18 +106,19 @@ function render(){
         // completeBtn.addEventListener('mouseleave', () => div.style.borderWidth = '1px');
 
         deleteBtn.appendChild(deleteNode);
-        div.appendChild(deleteBtn);
+        divBody.appendChild(deleteBtn);
 
+        div.appendChild(divBody);
 
-        const detailBtn = document.createElement('button');
-        const detailBtnNode = document.createTextNode('dettaglio');
-        detailBtn.addEventListener('click', () => {
-            sessionStorage.setItem('selectedTodo', JSON.stringify(todo));
-            window.location.href = './detail.html';
-        });
+        // const detailBtn = document.createElement('button');
+        // const detailBtnNode = document.createTextNode('dettaglio');
+        // detailBtn.addEventListener('click', () => {
+        //     sessionStorage.setItem('selectedTodo', JSON.stringify(todo));
+        //     window.location.href = './detail.html';
+        // });
 
-        detailBtn.appendChild(detailBtnNode);
-        div.appendChild(detailBtn);
+        // detailBtn.appendChild(detailBtnNode);
+        // div.appendChild(detailBtn);
 
         todoContainer.appendChild(div);
     }

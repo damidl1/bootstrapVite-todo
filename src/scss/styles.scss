@@ -1,1 +1,10 @@
 @import "~bootstrap/scss/bootstrap";
+
+button {
+    margin: 1em;
+}
+
+.card {
+    margin: 2rem;
+    display: flex;
+}
