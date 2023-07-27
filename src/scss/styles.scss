@@ -1,5 +1,9 @@
 @import "~bootstrap/scss/bootstrap";
 
+html{
+    background-color: #aaaaaa;
+}
+
 body {
     background: rgb(164, 164, 164);
     background: linear-gradient(180deg, rgba(164, 164, 164, 1) 0%, rgba(247, 247, 247, 1) 35%);
@@ -10,20 +14,35 @@ button {
 }
 
 .card {
+    background-color: transparent;
     margin-top: 2rem;
     margin-bottom: 2rem;
     margin-right: 0rem;
     margin-left: 0rem;
     display: flex;
-    border-radius: 1rem;
-    border: 0rem;
+    border-radius: 1rem !important;
+    border: 0rem !important;            //togliere se ci sono linee bianche (solo riga)
+    transition: border-radius 0.5s ease-in-out;
+}
+
+.card:hover{                            //togliere se ci sono linee bianche (tutto)
+    border-radius: 0.5rem !important;
+    border: 0rem !important;
 }
 
 .card-body{
     text-align: center;
     background-color: #c8c8c8;
     color: #515151;
-    border-radius: 1rem;
+    border-radius: 1rem !important;
+    transition: all 0.5s ease-in-out; //togliere se ci sono linee bianche (solo riga)
+    border: 0rem !important;
+
+}
+
+.card-body:hover{                       //togliere se ci sono linee bianche (tutto)
+    border-radius: 0.5rem !important;
+    border: 0rem !important; 
 }
 
 .todo-container {
@@ -36,6 +55,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 0rem !important;
 }
 
 header{
@@ -49,10 +69,188 @@ header{
 }
 
 h1{
-    font-size: 18rem;
+    font-size: 15rem;
+    cursor: default;
 }
 
 h3{
-    font-size: 5rem;
+    font-size: 4rem;
     margin-top: -3rem;
+    cursor: default;
+}
+
+.btn-group button{
+    margin-left: 4.7rem;
+    background-color: transparent !important;
+    color: #515151 !important;
+    border: 1px solid #515151 !important;
+}
+
+.btn-group button:hover{
+    background-color: #aaaaaa !important;
+    color: #515151;
+    border: 1px solid #515151;
+
+}
+
+.btn-group button:active{
+    background-color: #e3e3e3 !important;
+    color: #515151 !important;
+    border: 1px solid #515151 !important;
+    
+}
+
+.card-body button{
+    
+    background-color: transparent !important;
+    color: #515151 !important;
+    border: 1px solid #515151 !important;
+}
+
+.card-body button:hover{
+    background-color: #515151 !important;
+    color: #e3e3e3 !important;
+    border: 1px solid #515151 !important;
+
+}
+
+.card-body button:active{
+    background-color: #434343 !important;
+    color: #e3e3e3 !important;
+    border: 1px solid #515151 !important;
+    
+}
+
+.card-text{
+    font-weight: 200;
+}
+
+.disclaimer{
+    text-align: center;
+    color: #434343;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    cursor: default;
+}
+
+.green{
+    transition: all 0.5s ease;
+}
+
+.red{
+    transition: all 0.5s ease;
+}
+
+.green:hover{
+    
+    color:  #58be73;
+
+}
+
+.red:hover{
+    color: #d35252;
+}
+
+li:active{
+    background-color: #e3e3e3 !important;
+    color: #515151 !important;
+    
+}
+
+a:active{
+    background-color: #e3e3e3 !important;
+    color: #515151 !important;
+    
+}
+
+#showDialog {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+
+    background-color: #434343;
+    color: #f7f7f7;
+
+
+    margin: 1rem;
+
+    padding: 0px;
+
+    padding-bottom: 5rem;
+
+    font-size: 3em;
+    
+    border-radius: 18rem;
+    width: 5rem;
+    height: 1rem;
+    text-align: center;
+    transition: all 0.7s ease;
+    border: 1px solid #434343;
+    -webkit-box-shadow: 0px 0px 8px 1px #000000; 
+    box-shadow: 0px 0px 8px 1px #000000;
+}
+
+#showDialog:hover{
+    color: #434343;
+    background-color: #e3e3e3;
+    border: 1px solid #434343;
+    -webkit-box-shadow: 0px 0px 16px 1px #000000; 
+box-shadow: 0px 0px 16px 1px #000000;
+}
+
+#newShowDialog{
+    background: rgb(102,102,102);
+    background: linear-gradient(318deg, #a4a4a4 0%, rgba(227,227,227,1) 53%);
+    border: none;
+    border-radius: 2rem;
+    color: #e3e3e3;
+    padding: 3rem;
+    -webkit-box-shadow: 0px 0px 35px 3px #000000; 
+    box-shadow: 0px 0px 35px 3px #000000;
+    transition: all 1s ease;
+    color: #434343;
+}
+
+#newShowDialog button{
+    background-color: transparent !important;
+    color: #515151 !important;
+    border: 1px solid #515151 !important;
+}
+
+#newShowDialog button:hover{
+    background-color: #515151 !important;
+    color: #e3e3e3 !important;
+    border: 1px solid #515151 !important;
+
+}
+
+#newShowDialog button:active{
+    background-color: #434343 !important;
+    color: #e3e3e3 !important;
+    border: 1px solid #515151 !important;
+    
+}
+
+.btn-div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline-width: 0;
+    border: none;
+}
+
+.compShad{
+    box-shadow: 0px 9px 42px -6px #71967b;
+    transition: all 0.7s ease-in-out;
+}
+
+.uncompShad{
+    box-shadow: 0px 9px 35px -6px #967171;
+    transition: all 0.7s ease-in-out;
 }
